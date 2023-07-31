@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>在 Cesium 中绘制球体</title>
+    <style>
+      #cesiumContainer {
+        width: 800px; /* 设置宽度 */
+        height: 600px; /* 设置高度 */
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cesiumContainer"></div>
+  </body>
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.107/Build/Cesium/Cesium.js"></script>
+  <script>
+    // 设置 Cesium ion 的访问令牌
+    Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjM2FlOGMzNi1mMjcyLTQ1MWQtOTc0MC1jYjkxNGQyNGRlMzEiLCJpZCI6NTYwOTksImlhdCI6MTYyMTI0NDMxMn0.BTpbkIQgzHkHTS53DP3iP3PM_M4fqAJH-UhB8GVQANg";
+    // 初始化 Cesium 场景
+    const viewer = new Cesium.Viewer("cesiumContainer");
+
+    /**设置画布大小*/
+    viewer.cesiumWidget.canvas.width = 700;
+    viewer.cesiumWidget.canvas.height = 500;
+
+    viewer.resize(); // 重新调整视图大小
+
+    // 球体的位置（经度、纬度、高度）
+    const position = Cesium.Cartesian3.fromDegrees(-75.59777, 40.03883, 100000);
+
+    // 球体的半径（单位：米）
+    const radius = 50000;
+
+    // 创建球体实体
+    const sphereEntity = viewer.entities.add({
+      position: position,
+      ellipsoid: {
+        radii: new Cesium.Cartesian3(radius, radius, radius),
+        material: Cesium.Color.BLUE.withAlpha(0.5), // 球体的填充颜色，带有透明度
+      },
+    });
+
+    // 将视角定位到球体所在位置
+    viewer.zoomTo(sphereEntity);
+  </script>
+</html>
