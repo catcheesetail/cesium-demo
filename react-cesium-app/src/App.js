@@ -4,7 +4,7 @@ import PrimitivesDemo from './primitives';
 
 class App extends Component {
   state = {
-    type: 'primitives'
+    type: 'entity'
   }
   componentDidMount() {
 
