@@ -33,7 +33,7 @@ const Cesium3DTilesetComponent = () => {
     //   url: '/jlhb/3dtiles/tileset.json',
     // });
 
-    const tileset2 = await Cesium.Cesium3DTileset.fromUrl("http://localhost:3000/jlhb/3dtiles/tileset.json");
+    const tileset2 = await Cesium.Cesium3DTileset.fromUrl("http://localhost:3002/jlhb/3dtiles/tileset.json");
     viewerRef.scene.primitives.add(tileset2);
     // Set the camera to view the newly added tileset
     viewerRef.camera.viewBoundingSphere(tileset2.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));

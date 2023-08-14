@@ -44,6 +44,9 @@ class EntityDemo extends Component {
     });
     // 添加一个面要素
     this.polygon = this.viewer.entities.add({
+      id:'polygonId', //此对象的唯一标识符。如果未提供，则将生成GUID。
+      // name:'面要素',
+      // show:true,
       polygon: {
         hierarchy: Cesium.Cartesian3.fromDegreesArray([
           -74.59777, 40.03883,
@@ -56,6 +59,7 @@ class EntityDemo extends Component {
 
     /**添加事件 */
     this.addEvent();
+     /**添加标签 */
     this.addLabel();
   }
 

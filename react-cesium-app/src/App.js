@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import EntityDemo from './entity';
 import PrimitivesDemo from './primitives';
+import ClassifyCesium3DTilesetComponent from './classifyModel';
+
 
 class App extends Component {
   state = {
-    type: 'entity'
+    type: 'classify'
   }
   componentDidMount() {
 
@@ -18,8 +20,12 @@ class App extends Component {
         <button onClick={() => {
           this.setState({ type: 'primitives' })
         }}>primitives</button>
+           <button onClick={() => {
+          this.setState({ type: 'classify' })
+        }}>分层模型</button>
         {['entity'].includes(this.state.type) && <EntityDemo />}
         {['primitives'].includes(this.state.type) && <PrimitivesDemo />}
+        {['classify'].includes(this.state.type)&&<ClassifyCesium3DTilesetComponent/>}
       </div>
     );
   }
